@@ -1,23 +1,15 @@
 package com.dell.yikezhong.view.activity;
 
 import android.content.Intent;
-import android.content.res.ObbInfo;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.dell.yikezhong.R;
 import com.dell.yikezhong.modle.bean.Bean;
 import com.dell.yikezhong.presenter.IMainPresenter;
 import com.dell.yikezhong.view.fragment.NewsFM;
-import com.dell.yikezhong.view.fragment.PictureFM;
 import com.dell.yikezhong.view.fragment.RecommendFM;
 import com.dell.yikezhong.view.fragment.VideoFM;
 import com.dell.yikezhong.view.interfaces.IMainDataCallBack;
