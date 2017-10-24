@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/crosstalk_touxiang"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:src="@drawable/raw_1499936862" />
+
+    <TextView
+        android:id="@+id/crosstalk_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="3dp"
+        android:layout_toRightOf="@+id/crosstalk_touxiang"
+        android:text="天蝎喝牛奶"
+        android:textColor="#e51c23"
+        android:textSize="23dp" />
+
+    <TextView
+        android:id="@+id/crosstalk_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/crosstalk_name"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="3dp"
+        android:layout_toRightOf="@+id/crosstalk_touxiang"
+        android:text="2015-5-2"
+        android:textSize="15dp" />
+
+    <ImageView
+        android:id="@+id/crosstalk_choices"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="15dp"
+        android:src="@drawable/icon_open" />
+
+    <TextView
+        android:id="@+id/crosstalk_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/crosstalk_touxiang"
+        android:layout_margin="15dp"
+        android:textSize="22dp"
+        android:text="世纪东方北京撒无法去我家，电风扇女促销价东方北京撒无法去我家，电风扇女促销价必须尽快joie东方北京撒无法去我家，电风扇女促销价必须尽快joie必须尽快joie文化覅和" />
+</RelativeLayout>
