@@ -13,7 +13,7 @@
         android:background="?attr/colorPrimary"
         android:theme="@style/AppTheme.AppBarOverlay"
         app:title="推荐"
-        app:titleMarginStart="150dp"
+        app:titleMarginStart="160dp"
         app:logo="@mipmap/ic_launcher"
         app:popupTheme="@style/AppTheme.PopupOverlay"/>
     <com.hjm.bottomtabbar.BottomTabBar

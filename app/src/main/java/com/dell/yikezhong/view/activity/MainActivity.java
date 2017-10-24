@@ -1,5 +1,6 @@
 package com.dell.yikezhong.view.activity;
 
+import android.content.Intent;
 import android.content.res.ObbInfo;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -8,6 +9,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.dell.yikezhong.R;
@@ -19,6 +22,7 @@ import com.dell.yikezhong.view.fragment.RecommendFM;
 import com.dell.yikezhong.view.fragment.VideoFM;
 import com.dell.yikezhong.view.interfaces.IMainDataCallBack;
 import com.hjm.bottomtabbar.BottomTabBar;
+import com.hjm.bottomtabbar.custom.CustomFragmentTabHost;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 /**
  * mainactivity
@@ -34,6 +38,20 @@ public class MainActivity extends BaseActivity implements IMainDataCallBack<Bean
         setContentView(R.layout.activity_main);
         getTabBar();
         getSliding();
+        Intent intent = getIntent();
+        int aad = intent.getIntExtra("aad", 0);
+        if (aad == 1) {
+            LinearLayout ll = (LinearLayout) tabBar.getChildAt(0);
+            for (int i = 0; i < ll.getChildCount(); i++) {
+                View child = ll.getChildAt(i);
+                if (child instanceof CustomFragmentTabHost) {
+                    CustomFragmentTabHost tabHost = (CustomFragmentTabHost) ll.getChildAt(i);
+                    tabHost.setCurrentTab(2);
+                }
+            }
+        }else{
+            return;
+        }
     }
 
     private void getSliding() {
@@ -53,7 +71,6 @@ public class MainActivity extends BaseActivity implements IMainDataCallBack<Bean
                 .addTabItem("推荐",R.drawable.raw_1500085367,R.drawable.raw_1500083878,  RecommendFM.class)
                 .addTabItem("段子",R.drawable.raw_1500085899, R.drawable.raw_1500085327,NewsFM.class)
                 .addTabItem("视频",R.drawable.raw_1500086067,R.drawable.raw_1500083686,  VideoFM.class);
-//                .addTabItem("趣图", R.mipmap.ic_launcher,  R.mipmap.ic_launcher,PictureFM.class);
         float a =70;
         tabBar.setDividerHeight(a);
     }
@@ -63,6 +80,7 @@ public class MainActivity extends BaseActivity implements IMainDataCallBack<Bean
         iMainPresenter = new IMainPresenter();
         iMainPresenter.setCallBack(this);
         menu=new SlidingMenu(MainActivity.this);
+
     }
 
     protected void initView() {
@@ -71,11 +89,20 @@ public class MainActivity extends BaseActivity implements IMainDataCallBack<Bean
     //实现IMainDataCallBack接口后的两个方法
     @Override
     public void onSuccess(Bean bean) {
-        Log.e("MainActivity","MainActivity"+bean.getCode());
+
     }
 
     @Override
     public void onError() {
 
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK){
+            Intent intent = new Intent();
+            intent.getStringExtra(data.getStringExtra("text"));
+            startActivity(intent);
+        }
     }
 }
